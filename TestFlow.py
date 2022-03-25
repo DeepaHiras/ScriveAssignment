@@ -1,6 +1,4 @@
 import time
-from os import path
-
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.chrome.service import Service
@@ -10,17 +8,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def getdriverfirefox():
-    basepath = path.dirname(__file__)
-    filepath = path.abspath(path.join(basepath, "geckodriver"))
-    s = Service(filepath)
+    s = Service(executable_path='./geckodriver')
     driver = webdriver.Firefox(service=s)
     return driver
 
 
 def getdriverchrome():
-    basepath = path.dirname(__file__)
-    filepath = path.abspath(path.join(basepath, "chromedriver"))
-    s = Service(filepath)
+    s = Service(executable_path='./chromedriver')
     driver = webdriver.Chrome(service=s)
     return driver
 

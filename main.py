@@ -7,14 +7,19 @@ try:
     # Testing in Chrome
     driver = TestFlow.getdriverchrome()
     TestFlow.tests(driver, 'chrome')
+    print('Tested successfully in Chrome')
 
     # Testing in Firefox
     driver = TestFlow.getdriverfirefox()
     TestFlow.tests(driver, 'firefox')
+    print('Tested successfully in Firefox')
 
     # Testing in BrowserStack
     driver = TestFlow.getdriverbrowserstack()
     TestFlow.tests(driver, 'browserstack')
+    print('Tested successfully in BrowserStack')
 
 except NoSuchElementException:
-    print('Element was not loaded')
+    print('Exception: Some element was not loaded. Tests incomplete')
+except:
+    print('Something went wrong. Tests Incomplete')
