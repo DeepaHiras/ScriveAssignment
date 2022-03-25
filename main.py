@@ -28,5 +28,6 @@ try:
 
 except NoSuchElementException:
     print('Exception: Some element was not loaded. Tests incomplete')
-except:
+except Exception as e:
     print('Something went wrong. Tests Incomplete')
+    print(e)
