@@ -22,8 +22,8 @@ def getdriverchrome():
 def getdriverbrowserstack():
     options = webdriver.IeOptions()
     options.set_capability('browser_version', '11.0')
-    options.set_capability('name', 'Scrive')
-    options.set_capability('build', 'Scrive')
+    options.set_capability('name', 'ScriveAssignment')
+    options.set_capability('build', 'ScriveAssignment')
     driver = webdriver.Remote(
         command_executor='https://deepahiras_vdzJ23:sQGpGhs3rAKUcPxeUs4k@hub-cloud.browserstack.com/wd/hub',
         options=options)
@@ -53,4 +53,4 @@ def tests(driver, browser):
     if browser == 'browserstack':
         driver.save_screenshot('Screenshots/BrowserStack-DocumentSigned.png')
     driver.close()
-    driver.quit()
+

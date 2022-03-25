@@ -14,10 +14,17 @@ try:
     TestFlow.tests(driver, 'firefox')
     print('Tested successfully in Firefox')
 
-    # Testing in BrowserStack
-    driver = TestFlow.getdriverbrowserstack()
-    TestFlow.tests(driver, 'browserstack')
-    print('Tested successfully in BrowserStack')
+    try:
+        # Testing in BrowserStack
+        driver = TestFlow.getdriverbrowserstack()
+        TestFlow.tests(driver, 'browserstack')
+        print('Tested successfully in BrowserStack')
+    except:
+        driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Failed"}}')
+    else:
+        driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Passed"}}')
+
+    driver.quit()
 
 except NoSuchElementException:
     print('Exception: Some element was not loaded. Tests incomplete')
